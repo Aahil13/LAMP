@@ -1,6 +1,6 @@
 ---
 - name: Update package manager's package list
-  become: true
+  sudo: yes
   apt:
     update_cache: yes
 
