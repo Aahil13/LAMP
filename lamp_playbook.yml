@@ -1,7 +1,7 @@
 ---
 - name: Setup LAMP stack
   hosts: all
-  become: true
+  become: yes
   become_method: sudo
   become_user: lamp
 
