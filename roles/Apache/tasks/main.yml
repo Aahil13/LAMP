@@ -1,5 +1,6 @@
 ---
 - name: Update package manager's package list
+  become: true
   apt:
     update_cache: yes
 
