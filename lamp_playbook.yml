@@ -1,8 +1,9 @@
 ---
 - name: Setup LAMP stack
   hosts: all
-  become: yes
+  become: true
   become_method: sudo
+  become_user: lamp
 
   roles:
     - Apache
