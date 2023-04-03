@@ -1,8 +1,10 @@
 ---
-- name: Install Apache
+- name: Update package manager's package list
   apt:
-    name: apache2
-    state: present
+    update_cache: yes
+
+- name: Install Apache
+  apt: name=apache2 state=present
 
 - name: Start Apache service
   service:
@@ -10,8 +12,7 @@
     state: started
     enabled: yes
 
-  handlers:
-    - name: restart apache
-      service:
-        name: apache2
-        state: restarted
+- name: Restart apache
+  service:
+    name: apache2
+    state: restarted
