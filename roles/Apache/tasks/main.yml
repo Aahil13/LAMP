@@ -1,10 +1,10 @@
 ---
-- name: Update package manager's package list
-  apt:
-    update_cache: yes
+- name: Install prerequisites
+  apt:  update_cache=yes
+  loop: [ 'aptitude' ]
 
 - name: Install Apache
-  apt: name=apache2 state=present
+  apt: name=apache2 update_cache=yes state=latest
 
 - name: Start Apache service
   service:
