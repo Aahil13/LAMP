@@ -10,14 +10,6 @@
     state: started
     enabled: yes
 
-- name: Enable mod_rewrite
-  apache2_module:
-    name: rewrite
-    state: present
-    force: yes
-  notify:
-    - restart apache
-
   handlers:
     - name: restart apache
       service:
