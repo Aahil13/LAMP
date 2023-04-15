@@ -1,9 +1,8 @@
 ---
 - name: Setup LAMP stack
   hosts: all
-  become: yes
-  become_method: sudo
-  become_user: root
+  # remote_user: ansibleuser
+  remote_user: lamp
 
   roles:
     - Apache
