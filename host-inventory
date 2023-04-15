@@ -1,3 +1,0 @@
-<!-- [webservers]
-192.0.2.1 ansible_user=ubuntu ansible_ssh_private_key_file=/path/to/key.pem -->
-34.229.126.68 ansible_user=lamp ansible_ssh_private_key_file=/home/lamp/.ssh/id_rsa
