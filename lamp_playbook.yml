@@ -1,7 +1,6 @@
 ---
 - name: Setup LAMP stack
   hosts: all
-  # remote_user: ansibleuser
   remote_user: lamp
   become: yes
 
