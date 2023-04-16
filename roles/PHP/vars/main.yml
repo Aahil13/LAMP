@@ -1,2 +1,2 @@
 # vars.yml
-ansible_user: lamp
+ansible_user: ansibleUser

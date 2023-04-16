@@ -8,40 +8,40 @@
         - php-cli
       state: present
 
-  - name: Replace file content with local file
+  - name: Replace configuration file content with local file
     copy:
       src: config
       dest: /etc/apache2/mods-enabled/dir.conf
 
   - name: Create directory for your domain
     file:
-      path: /var/www/lamp
+      path: /var/www/yourDomain
       state: directory
 
   - name: Set ownership for your directory
     file:
-      path: /var/www/lamp
+      path: /var/www/yourDomain
       state: directory
       owner: "{{ ansible_user }}"
       group: "{{ ansible_user }}"
 
-  - name: Set permissions for /var/www/lamp
+  - name: Set permissions for /var/www/yourDomain
     file:
-      path: /var/www/lamp
+      path: /var/www/yourDomain
       state: directory
       mode: "0755"
 
-  - name: Replace file content with local file
+  - name: Replace html file content with local index.html file
     copy:
       src: index.html
-      dest: /var/www/lamp/index.html
+      dest: /var/www/yourDomain/index.html
 
-  - name: Replace file content with local file
+  - name: Replace sites-available configuration file content with local file
     copy:
       src: sites-available
-      dest: /etc/apache2/sites-available/lamp.conf
+      dest: /etc/apache2/sites-available/yourDomain.conf
 
-  - name: Enable lamp site
+  - name: Enable yourDomain site
     apache2_module:
       state: present
       name: rewrite
@@ -55,7 +55,7 @@
     notify:
       - restart apache2
 
-  - name: Replace file content with local file
-    copy:
-      src: info.php
-      dest: /var/www/lamp/info.php
+  # - name: Replace file content with local file
+  #   copy:
+  #     src: info.php
+  #     dest: /var/www/yourDomain/info.php
