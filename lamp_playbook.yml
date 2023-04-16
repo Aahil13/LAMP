@@ -3,6 +3,7 @@
   hosts: all
   # remote_user: ansibleuser
   remote_user: lamp
+  become: yes
 
   roles:
     - Apache
