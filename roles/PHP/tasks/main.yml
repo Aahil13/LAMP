@@ -39,7 +39,7 @@
   - name: Replace file content with local file
     copy:
       src: sites-available
-      dest: /etc/apache2/sites-available/your_domain.conf
+      dest: /etc/apache2/sites-available/lamp.conf
 
   - name: Enable lamp site
     apache2_module:
