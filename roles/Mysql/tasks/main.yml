@@ -12,17 +12,17 @@
       state: started
       enabled: yes
 
-  # Secure MySQL installation
-  - name: Secure MySQL installation
-    expect:
-      command: mysql_secure_installation
-      responses:
-        'Enter password for user root:': ''
-        'Press y|Y for Yes, any other key for No:': 'y'
-        'New password:': 'password'
-        'Re-enter new password:': 'password'
-        'Remove anonymous users? (Press y|Y for Yes, any other key for No) :': 'N'
-        'Disallow root login remotely? (Press y|Y for Yes, any other key for No) :': 'y'
-        'Remove test database and access to it? (Press y|Y for Yes, any other key for No) :': 'y'
-        'Reload privilege tables now? (Press y|Y for Yes, any other key for No) :': 'y'
+  # # Secure MySQL installation
+  # - name: Secure MySQL installation
+  #   expect:
+  #     command: mysql_secure_installation
+  #     responses:
+  #       'Enter password for user root:': ''
+  #       'Press y|Y for Yes, any other key for No:': 'y'
+  #       'New password:': 'password'
+  #       'Re-enter new password:': 'password'
+  #       'Remove anonymous users? (Press y|Y for Yes, any other key for No) :': 'N'
+  #       'Disallow root login remotely? (Press y|Y for Yes, any other key for No) :': 'y'
+  #       'Remove test database and access to it? (Press y|Y for Yes, any other key for No) :': 'y'
+  #       'Reload privilege tables now? (Press y|Y for Yes, any other key for No) :': 'y'
 
