@@ -31,6 +31,16 @@
       state: directory
       mode: "0755"
 
+  - name: Replace file content with local file
+    copy:
+      src: index.html
+      dest: /var/www/lamp/index.html
+
+  - name: Replace file content with local file
+    copy:
+      src: sites-available
+      dest: /etc/apache2/sites-available/your_domain.conf
+
   - name: Enable lamp site
     apache2_module:
       state: present
