@@ -44,13 +44,13 @@
   - name: Enable lamp site
     apache2_module:
       state: present
-      name: "rewrite"
+      name: rewrite
     notify:
-      - "restart apache2"
+      - restart apache2
 
   - name: Disable default site
     apache2_module:
       state: absent
-      name: "rewrite"
+      name: rewrite
     notify:
-      - "restart apache2"
+      - restart apache2
