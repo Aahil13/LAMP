@@ -1,0 +1,20 @@
+---
+- name: Install PHP and Apache packages
+  apt:
+    name:
+      - php
+      - libapache2-mod-php
+      - php-mysql
+      - php-cli
+    state: present
+
+- name: Replace file content with local file
+  copy:
+    src: config
+    dest: /etc/apache2/mods-enabled/dir.conf
+
+- name: Restart Apache
+  become: true
+  systemd:
+    name: apache2
+    state: restarted
