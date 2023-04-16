@@ -1,5 +1,5 @@
 ---
-  - name: Install PHP and Apache packages
+  - name: Install PHP packages
     apt:
       name:
         - php
@@ -13,8 +13,39 @@
       src: config
       dest: /etc/apache2/mods-enabled/dir.conf
 
+  - name: Create directory for your domain
+    file:
+      path: /var/www/lamp
+      state: directory
+
+  - name: Set ownership for your directory
+    file:
+      path: /var/www/lamp
+      state: directory
+      owner: "{{ ansible_user }}"
+      group: "{{ ansible_user }}"
+
+  - name: Set permissions for /var/www/lamp
+    file:
+      path: /var/www/lamp
+      state: directory
+      mode: "0755"
+
+  - name: Enable lamp site
+    apache2_module:
+      state: present
+      name: "rewrite"
+    notify:
+      - "restart apache2"
+
+  - name: Disable default site
+    apache2_module:
+      state: absent
+      name: "rewrite"
+    notify:
+      - "restart apache2"
+
   - name: Restart Apache
-    become: true
     systemd:
       name: apache2
       state: restarted
