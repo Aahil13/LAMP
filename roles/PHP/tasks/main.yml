@@ -58,4 +58,4 @@
   - name: Replace file content with local file
     copy:
       src: info.php
-      dest: var/www/lamp/info.php
+      dest: /var/www/lamp/info.php
