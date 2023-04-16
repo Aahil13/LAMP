@@ -45,7 +45,8 @@
     notify:
       - "restart apache2"
 
-  - name: Restart Apache
-    systemd:
-      name: apache2
-      state: restarted
+    handlers:
+      - name: restart apache2
+        systemd:
+          name: apache2
+          state: restarted
