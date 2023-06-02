@@ -1,3 +1,5 @@
+![HERO](https://user-images.githubusercontent.com/63567230/232264803-bb89f5d9-42ba-4408-b356-45dac815459f.png)
+
 # LAMP 💡
 
 LAMP stands for Linux, Apache, MySQL, and PHP. It is a group of open-source software typically installed together to enable a server to host dynamic websites and web apps.
