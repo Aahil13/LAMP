@@ -41,17 +41,18 @@
       src: sites-available
       dest: /etc/apache2/sites-available/yourDomain.conf
 
-  - name: Enable yourDomain site
-    apache2_module:
-      state: present
-      name: rewrite
+  - name: Replace 000-default.conf file content with local copy
+    copy:
+      src: 000-default.conf
+      dest: /etc/apache2/sites-available/000-default.conf
+
+  - name: Disable default site
+    shell: a2dissite /etc/apache2/sites-available/default-ssl.conf
     notify:
       - restart apache2
 
-  - name: Disable default site
-    apache2_module:
-      state: absent
-      name: rewrite
+  - name: Enable yourDomain site
+    shell: a2ensite /etc/apache2/sites-available/yourDomain.conf
     notify:
       - restart apache2
 
